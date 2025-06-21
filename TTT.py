@@ -77,9 +77,9 @@ while (x == 1):
     gb()
     if(gameEndX() == True):
         break
-    if(gameEndO() == True):
+    elif(gameEndO() == True):
         break
-    if(gameDraw() == True):      
+    elif(gameDraw() == True):      
         break
     O = int(input("O's turn :"))
     while (1 > O or O > 9):
@@ -91,7 +91,7 @@ while (x == 1):
     gb()
     if(gameEndX() == True):
         break
-    if(gameEndO() == True):
+    elif(gameEndO() == True):
         break
-    if(gameDraw() == True):      
+    elif(gameDraw() == True):      
         break
