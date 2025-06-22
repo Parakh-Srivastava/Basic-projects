@@ -26,7 +26,7 @@ def gameEndX():
     elif(gameboard[0][0] == 'X' and gameboard[2][2] == 'X' and gameboard[4][4] == 'X'):
         print("X wins !!")
         return True
-    elif(gameboard[0][4] and gameboard[2][2] and gameboard[4][0] == 'X'):
+    elif(gameboard[0][4] == 'X' and gameboard[2][2] == 'X' and gameboard[4][0] == 'X'):
         print("X wins !!")
         return True
     else:
@@ -64,9 +64,8 @@ def gameDraw():
             print("The game is a draw !!")
             return True
 print('Write the number where you want the respective symbol')
-x = 1
 gb()
-while (x == 1):
+while (True):
     X = int(input("X's turn :"))
     while (1 > X or X > 9):
         X = int(input("Enter numbers from 1 to 9 buddy :"))
