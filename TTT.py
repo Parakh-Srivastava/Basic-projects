@@ -1,3 +1,4 @@
+import random
 gameboard = [[1,'|',2,'|',3],['-','+','-','+','-'],[4,'|',5,'|',6],['-','+','-','+','-'],[7,'|',8,'|',9]]
 def gb():
     for i in range(0,5):
@@ -65,8 +66,13 @@ def gameDraw():
             return True
 print('Write the number where you want the respective symbol')
 gb()
+CvP = int(input("Do you wanna play with computer or player : 2 = comp || 1 = player"))
 while (True):
-    X = int(input("X's turn :"))
+    if(CvP == 1):
+        X = int(input("X's turn :"))
+    elif(CvP == 2):
+        X = random.randint(1,9)
+        print(f"X = ", {X})
     while (1 > X or X > 9):
         X = int(input("Enter numbers from 1 to 9 buddy :"))
     for i in range(0,5):
