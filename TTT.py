@@ -37,6 +37,7 @@ def X_inputC():
                 break
         if(gameboard[i][j] == X):
             gameboard[i][j] = 'X'
+            print("--------")
             print(f"X = {X}")
             ch = False
         else:
