@@ -101,6 +101,7 @@ while (True):
         X_inputP()
     elif(CP == 2):
         X_inputC()
+    print("\n")
     gb()
     if(gameEndX() == True):
         break
@@ -109,6 +110,7 @@ while (True):
     elif(gameDraw() == True):      
         break
     O_input()
+    print("\n")
     gb()
     if(gameEndX() == True):
         break
