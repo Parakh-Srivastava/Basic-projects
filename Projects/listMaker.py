@@ -19,4 +19,4 @@ while goback == 1:
         print(List)
     else:
         print("Enter the values which are given in the option !!!")
-    goback = int(input("Do you want to make another change? (yes = 1 ; no = Any other 'logical' button)"))
+    goback = int(input("Do you want to make another change? (yes = 1 ; no = Any other number)"))
