@@ -23,8 +23,7 @@ def inputC(XO):
 
     if(gameboard[i][j] == inp):
         gameboard[i][j] = XO
-        print(f"{XO} plays {inp}.")
-        
+        print(f"{XO} plays {inp}.")    
     else:
         inputC(XO)
 
@@ -69,6 +68,8 @@ def gameDraw():
        and gameboard[4][0] != 7 and gameboard[4][2] != 8 and gameboard[4][4] != 9):
         print("The game is a draw !!")
         return True
+    else:
+        return False
 
 def main():
     print("Write the number where you want the respective symbol !!")
@@ -85,6 +86,12 @@ def main():
                 inputC('X')
             elif XorO == 2:
                 input_Value('X')
+            else :
+                print("Either 1 or 2, game closed due to retardness.")
+                break
+        else :
+            print("Either 1 or 2, game closed due to retardness.")
+            break
         print("\n")
         
         gb()
@@ -92,7 +99,6 @@ def main():
             break
         elif(gameDraw() == True):      
             break
-
         
         if CorP == 1:
             input_Value('O')
