@@ -8,47 +8,46 @@ def gb():
         print()
 
 def inputC(XO):
-    sel = True
-    while(sel == True):
-        inp = random.randint(1,9)
-        while (1 > inp or inp > 9):
-            inp = int(input("Enter numbers from 1 to 9 buddy :"))
 
-        for i in range(0,5):
-            for j in range(0,5):
-                if(gameboard[i][j] == inp):
-                    break
+    inp = random.randint(1,9)
+    
+    while (1 > inp or inp > 9):
+        inp = int(input("Enter numbers from 1 to 9 buddy :"))
+
+    for i in range(0,5):
+        for j in range(0,5):
             if(gameboard[i][j] == inp):
                 break
-
         if(gameboard[i][j] == inp):
-            gameboard[i][j] = XO
-            print(f"{XO} plays {inp}.")
-            sel = False
-        else:
-            sel = True
+            break
+
+    if(gameboard[i][j] == inp):
+        gameboard[i][j] = XO
+        print(f"{XO} plays {inp}.")
+        
+    else:
+        inputC(XO)
 
 def input_Value(XO):
-    sel = True
-    while(sel == True):
-        inp = int(input(f"{XO}'s turn :"))
+
+    inp = int(input(f"{XO}'s turn :"))
+    
+    while (1 > inp or inp > 9): 
+        inp = int(input("Enter numbers from 1 to 9 buddy :"))   #Value under 1 to 9 will be selected
         
-        while (1 > inp or inp > 9): 
-            inp = int(input("Enter numbers from 1 to 9 buddy :"))   #Value under 1 to 9 will be selected
-        
-        for i in range(0,5):
-            for j in range(0,5):
-                if(gameboard[i][j] == inp):
-                    break
+    for i in range(0,5):
+        for j in range(0,5):
             if(gameboard[i][j] == inp):
                 break
+        if(gameboard[i][j] == inp):
+            break
         
-        if(gameboard[i][j] == inp):        #So that we can see if the entered number is not already filled.
-            gameboard[i][j] = XO
-            sel = False
-        else:
-            print("invalid output !")
-            sel = True
+    if(gameboard[i][j] == inp):        #So that we can see if the entered number is not already filled.
+        gameboard[i][j] = XO
+        sel = False
+    else:
+        print("invalid output !")
+        input_Value(XO)
 
 def gameEnd(XO):
     if((gameboard[0][0] == XO and gameboard[0][2] == XO and gameboard[0][4] == XO)
