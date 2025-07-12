@@ -1,120 +1,114 @@
 import random
 gameboard = [[1,'|',2,'|',3],['-','+','-','+','-'],[4,'|',5,'|',6],['-','+','-','+','-'],[7,'|',8,'|',9]]
+
 def gb():
     for i in range(0,5):
         for j in range(0,5):
             print(gameboard[i][j], end=' ')
         print()
-def X_inputP():
-    ch = True
-    while(ch == True):
-        X = int(input("X's turn :"))
-        while (1 > X or X > 9):
-            X = int(input("Enter numbers from 1 to 9 buddy :"))
+
+def inputC(XO):
+    sel = True
+    while(sel == True):
+        inp = random.randint(1,9)
+        while (1 > inp or inp > 9):
+            inp = int(input("Enter numbers from 1 to 9 buddy :"))
+
         for i in range(0,5):
             for j in range(0,5):
-                if(gameboard[i][j] == X ):
+                if(gameboard[i][j] == inp):
                     break
-            if(gameboard[i][j] == X ):
+            if(gameboard[i][j] == inp):
                 break
-        if(gameboard[i][j] == X):
-            gameboard[i][j] = 'X'
-            ch = False
+
+        if(gameboard[i][j] == inp):
+            gameboard[i][j] = XO
+            print(f"{XO} plays {inp}.")
+            sel = False
+        else:
+            sel = True
+
+def input_Value(XO):
+    sel = True
+    while(sel == True):
+        inp = int(input(f"{XO}'s turn :"))
+        
+        while (1 > inp or inp > 9): 
+            inp = int(input("Enter numbers from 1 to 9 buddy :"))   #Value under 1 to 9 will be selected
+        
+        for i in range(0,5):
+            for j in range(0,5):
+                if(gameboard[i][j] == inp):
+                    break
+            if(gameboard[i][j] == inp):
+                break
+        
+        if(gameboard[i][j] == inp):        #So that we can see if the entered number is not already filled.
+            gameboard[i][j] = XO
+            sel = False
         else:
             print("invalid output !")
-            ch = True
-def X_inputC():
-    ch = True
-    while(ch == True):
-        X = random.randint(1,9)
-        while (1 > X or X > 9):
-            X = int(input("Enter numbers from 1 to 9 buddy :"))
-        for i in range(0,5):
-            for j in range(0,5):
-                if(gameboard[i][j] == X ):
-                    break
-            if(gameboard[i][j] == X ):
-                break
-        if(gameboard[i][j] == X):
-            gameboard[i][j] = 'X'
-            print("--------")
-            print(f"X = {X}")
-            ch = False
-        else:
-            ch = True
-def O_input():
-    ch = True
-    while(ch == True):
-        O = int(input("O's turn :"))
-        while (1 > O or O > 9):
-            O = int(input("Enter numbers from 1 to 9 buddy :"))
-        for i in range(0,5):
-            for j in range(0,5):
-                if(gameboard[i][j] == O ):
-                    break
-            if(gameboard[i][j] == O ):
-                break
-        if(gameboard[i][j] == O):
-            gameboard[i][j] = 'O'
-            ch = False
-        else:
-            print("invalid output !")
-            ch = True
-def gameEndX():
-    if((gameboard[0][0] == 'X' and gameboard[0][2] == 'X' and gameboard[0][4] == 'X')
-       or (gameboard[2][0] == 'X' and gameboard[2][2] == 'X' and gameboard[2][4] == 'X')
-       or (gameboard[4][0] == 'X' and gameboard[4][2] == 'X' and gameboard[4][4] == 'X')
-       or (gameboard[0][0] == 'X' and gameboard[2][0] == 'X' and gameboard[4][0] == 'X')
-       or (gameboard[0][2] == 'X' and gameboard[2][2] == 'X' and gameboard[4][2] == 'X')
-       or (gameboard[0][4] == 'X' and gameboard[2][4] == 'X' and gameboard[4][4] == 'X')
-       or (gameboard[0][0] == 'X' and gameboard[2][2] == 'X' and gameboard[4][4] == 'X') 
-       or (gameboard[0][4] == 'X' and gameboard[2][2] == 'X' and gameboard[4][0] == 'X')):
-        print("X wins !!")
+            sel = True
+
+def gameEnd(XO):
+    if((gameboard[0][0] == XO and gameboard[0][2] == XO and gameboard[0][4] == XO)
+       or (gameboard[2][0] == XO and gameboard[2][2] == XO and gameboard[2][4] == XO)
+       or (gameboard[4][0] == XO and gameboard[4][2] == XO and gameboard[4][4] == XO)
+       or (gameboard[0][0] == XO and gameboard[2][0] == XO and gameboard[4][0] == XO)
+       or (gameboard[0][2] == XO and gameboard[2][2] == XO and gameboard[4][2] == XO)
+       or (gameboard[0][4] == XO and gameboard[2][4] == XO and gameboard[4][4] == XO)
+       or (gameboard[0][0] == XO and gameboard[2][2] == XO and gameboard[4][4] == XO) 
+       or (gameboard[0][4] == XO and gameboard[2][2] == XO and gameboard[4][0] == XO)):
+        print(f"{XO} wins !!")
         return True
     else:
         return False
-def gameEndO():
-    if((gameboard[0][0] == 'O' and gameboard[0][2] == 'O' and gameboard[0][4] == 'O')
-        or (gameboard[2][0] == 'O' and gameboard[2][2] == 'O' and gameboard[2][4] == 'O')
-        or (gameboard[4][0] == 'O' and gameboard[4][2] == 'O' and gameboard[4][4] == 'O')
-        or (gameboard[0][0] == 'O' and gameboard[2][0] == 'O' and gameboard[4][0] == 'O')
-        or (gameboard[0][2] == 'O' and gameboard[2][2] == 'O' and gameboard[4][2] == 'O')
-        or (gameboard[0][4] == 'O' and gameboard[2][4] == 'O' and gameboard[4][4] == 'O')
-        or (gameboard[0][0] == 'O' and gameboard[2][2] == 'O' and gameboard[4][4] == 'O')
-        or (gameboard[0][4] == 'O' and gameboard[2][2] == 'O' and gameboard[4][0] == 'O')):
-        print("O wins !!")
-        return True
-    else:
-        return False
+
 def gameDraw():
     if(gameboard[0][0] != 1 and gameboard[0][2] != 2 and gameboard[0][4] != 3
        and gameboard[2][0] != 4 and gameboard[2][2] != 5 and gameboard[2][4] != 6
        and gameboard[4][0] != 7 and gameboard[4][2] != 8 and gameboard[4][4] != 9):
-        if((gameEndO() == False) and (gameEndX() == False)):
-            print("The game is a draw !!")
-            return True
-CP = int(input("PvP = 1 || PvC = 2 :"))
-print('Write the number where you want the respective symbol')
-gb()
-while (True):
-    if(CP == 1):
-        X_inputP()
-    elif(CP == 2):
-        X_inputC()
-    print("\n")
+        print("The game is a draw !!")
+        return True
+
+def main():
+    print("Write the number where you want the respective symbol !!")
     gb()
-    if(gameEndX() == True):
-        break
-    elif(gameEndO() == True):
-        break
-    elif(gameDraw() == True):      
-        break
-    O_input()
-    print("\n")
-    gb()
-    if(gameEndX() == True):
-        break
-    elif(gameEndO() == True):
-        break
-    elif(gameDraw() == True):      
-        break
+    CorP = int(input("[Enter 1 for PvP] | [Enter 2 for PvC] : "))
+    if CorP == 2:
+        XorO = int(input("[Enter 1 to select O] [Enter 2 to select X] : \n"))
+    while (True):
+        
+        if CorP == 1:
+            input_Value('X')
+        elif CorP == 2:
+            if XorO == 1:
+                inputC('X')
+            elif XorO == 2:
+                input_Value('X')
+        print("\n")
+        
+        gb()
+        if(gameEnd('X') == True):
+            break
+        elif(gameDraw() == True):      
+            break
+
+        
+        if CorP == 1:
+            input_Value('O')
+        elif CorP == 2:
+            if XorO == 1:
+                input_Value('O')
+            elif XorO == 2:
+                inputC('O')
+        print("\n")
+
+        gb()
+        if(gameEnd('O') == True):
+            break
+        elif(gameDraw() == True):      
+            break
+
+if __name__ == "__main__":
+    main()
