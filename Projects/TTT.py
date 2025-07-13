@@ -12,7 +12,7 @@ def inputC(XO):
     inp = random.randint(1,9)
     
     while (1 > inp or inp > 9):
-        inp = int(input("Enter numbers from 1 to 9 buddy :"))
+        inp = int(input("Enter numbers from 1 to 9 buddy :")) #Value under 1 to 9 will be selected
 
     for i in range(0,5):
         for j in range(0,5):
@@ -43,7 +43,6 @@ def input_Value(XO):
         
     if(gameboard[i][j] == inp):        #So that we can see if the entered number is not already filled.
         gameboard[i][j] = XO
-        sel = False
     else:
         print("invalid output !")
         input_Value(XO)
