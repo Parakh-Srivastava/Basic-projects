@@ -34,7 +34,10 @@ def casino(Amount, BettingAmount):
             print("you lose !!")
             Amount -= BettingAmount
             print(f"You have now ${Amount}")
-            ContinueGambling(Amount)
+            if Amount != 0:
+                ContinueGambling(Amount)
+            else:
+                print("Now fuck off you broke ass nigga")
     elif Amount == 0:
         print("No money left to play lil bro !")
         return
