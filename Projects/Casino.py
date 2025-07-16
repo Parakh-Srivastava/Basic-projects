@@ -1,7 +1,7 @@
 import random as ra
 
 def ContinueGambling(Amount):
-    inp = input("Do you wanna play again !?")
+    inp = input("Do you wanna play again ! [Yes || No] : ")
     inputLower = inp.lower()
 
     if inputLower[0] == 'y':
@@ -13,8 +13,8 @@ def ContinueGambling(Amount):
         print("invalid output !!")
         ContinueGambling(Amount)
 
-def casino(Amount, BillingAmount):
-    if(Amount > 0):
+def casino(Amount, BettingAmount):
+    if(Amount >= 0 and BettingAmount <= Amount):
         slot1 = ra.randint(1, 3)
         slot2 = ra.randint(1, 3)
         slot3 = ra.randint(1, 3)
@@ -22,17 +22,17 @@ def casino(Amount, BillingAmount):
         
         if slot1 == slot2 == slot3:
             print("Congratulations you win !!!")
-            Amount += (BillingAmount * 999)
+            Amount += (BettingAmount * 999)
             print(f"You have now ${Amount}")
             ContinueGambling(Amount)
         else:
             print("you lose !!")
-            Amount -= BillingAmount
+            Amount -= BettingAmount
             print(f"You have now ${Amount}")
             ContinueGambling(Amount)
     else:
-        print("Insufficient Balance")
-        return
+        print(f"You only got ${Amount} you broke ass nigga !!")
+        ContinueGambling(Amount)
         
 def main():
     InitialAmount = int(input("Enter the amount you have : $"))
