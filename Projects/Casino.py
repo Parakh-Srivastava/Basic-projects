@@ -21,8 +21,13 @@ def casino(Amount, BettingAmount):
         print(f"{slot1} | {slot2} | {slot3}")
         
         if slot1 == slot2 == slot3:
-            print("Congratulations you win !!!")
+            print("Congratulations, legendary prize pool!!!")
             Amount += (BettingAmount * 999)
+            print(f"You have now ${Amount}")
+            ContinueGambling(Amount)
+        elif slot1 != slot2 != slot3 and slot1 != slot3:
+            print("Congratulations, epic prize pool!!!")
+            Amount += (BettingAmount * 9)
             print(f"You have now ${Amount}")
             ContinueGambling(Amount)
         else:
