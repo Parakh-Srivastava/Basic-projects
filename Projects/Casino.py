@@ -14,7 +14,7 @@ def ContinueGambling(Amount):
         ContinueGambling(Amount)
 
 def casino(Amount, BettingAmount):
-    if(Amount >= 0 and BettingAmount <= Amount):
+    if Amount > 0 and BettingAmount <= Amount:
         slot1 = ra.randint(1, 3)
         slot2 = ra.randint(1, 3)
         slot3 = ra.randint(1, 3)
@@ -30,6 +30,9 @@ def casino(Amount, BettingAmount):
             Amount -= BettingAmount
             print(f"You have now ${Amount}")
             ContinueGambling(Amount)
+    elif Amount == 0:
+        print("No money left to play lil bro !")
+        return
     else:
         print(f"You only got ${Amount} you broke ass nigga !!")
         ContinueGambling(Amount)
