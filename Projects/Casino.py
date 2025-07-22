@@ -1,5 +1,12 @@
 import random as ra
 
+def initialAmountSet():
+    amountSel = ra.randint(2, 6)
+    InitialAmount = 10 ** (amountSel + 1)
+    print("The amount you get : $", InitialAmount)
+    return InitialAmount
+
+
 def ContinueGambling(Amount):
     inp = input("Do you wanna play again ! [Yes || No] : ")
     inputLower = inp.lower()
@@ -21,13 +28,8 @@ def casino(Amount, BettingAmount):
         print(f"{slot1} | {slot2} | {slot3}")
         
         if slot1 == slot2 == slot3:
-            print("Congratulations, legendary prize pool!!!")
             Amount += (BettingAmount * 999)
-            print(f"You have now ${Amount}")
-            ContinueGambling(Amount)
-        elif slot1 != slot2 != slot3 and slot1 != slot3:
-            print("Congratulations, epic prize pool!!!")
-            Amount += (BettingAmount * 9)
+            print("Congratulations, You get $", BettingAmount * 1000)
             print(f"You have now ${Amount}")
             ContinueGambling(Amount)
         else:
@@ -46,7 +48,7 @@ def casino(Amount, BettingAmount):
         ContinueGambling(Amount)
         
 def main():
-    InitialAmount = int(input("Enter the amount you have : $"))
+    InitialAmount = initialAmountSet(); 
     BettingAmount = int(input("Enter the betting amount : $"))
     casino(InitialAmount, BettingAmount)
 
