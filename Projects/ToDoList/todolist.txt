@@ -1,0 +1,3 @@
+Learn OOP in python.
+Learn Github.
+Start with the first chapters of the college syllabus.
