@@ -6,7 +6,6 @@ def initialAmountSet():
     print("The amount you get : $", InitialAmount)
     return InitialAmount
 
-
 def ContinueGambling(Amount):
     inp = input("Do you wanna play again ! [Yes || No] : ")
     inputLower = inp.lower()

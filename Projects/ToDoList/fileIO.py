@@ -101,6 +101,7 @@ def main(inp):
         main(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
     
     elif inp == 5:
+        print("Exiting !!")
         return
     
     else:
