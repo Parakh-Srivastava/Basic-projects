@@ -1,3 +1,2 @@
-Learn Python Object Orienrted Programming
-Learn Git and Github
-Learn the first chapters of all subjects of college
+Learn P.O.O.P
+Learn Git / Github.

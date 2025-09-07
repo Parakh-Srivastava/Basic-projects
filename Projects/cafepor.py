@@ -20,5 +20,5 @@ while(inp != 6):
     inp = int(input("\nAny thing else :"))
 print("")
 for i in range(0,len(Bill)):
-    print(f"{Bill[i][0]} x{Bill[i][1]} = ${Bill[i][2]}")
+    print(f"{Bill[i][0]} x {Bill[i][1]} = ${Bill[i][2]}")
 print(f"\nYour total bill = ${totalBill}!")
