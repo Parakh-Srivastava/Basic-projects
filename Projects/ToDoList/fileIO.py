@@ -109,6 +109,6 @@ def main(inp):
 
 
 if __name__ == "__main__":
-    print("\n\t\t\t\t\t\t\tWELCOME TO THE TASK MANAGER !!")
+    print("\n\t\t\tWELCOME TO THE TASK MANAGER !!")
     
     main(int(input("Choose the serial number of the action you want to perform : \n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))

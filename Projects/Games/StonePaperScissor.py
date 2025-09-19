@@ -15,8 +15,7 @@ while CompPoint != 5 and PlayerPoint != 5:
     
     CI, PI = Inp()
     
-    print(f"Computer's Point = {CompPoint} || Player's Points = {PlayerPoint}")
-    print(f"Computer plays -----> {CI}")
+    print(f"Computer plays -----> {CI}\n")
 
     if CI == PI:
         print("Draw Round !!")
@@ -32,6 +31,8 @@ while CompPoint != 5 and PlayerPoint != 5:
     else:
         print("Player wins!!")
         PlayerPoint += 1
+    
+    print(f"\nComputer's Point = {CompPoint} || Player's Points = {PlayerPoint}\n")
 
 if CompPoint == 5:
     print("Computer wins the game !!")
