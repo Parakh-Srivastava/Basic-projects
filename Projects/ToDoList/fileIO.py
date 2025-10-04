@@ -1,14 +1,16 @@
-with open("todolist.txt", "r") as f:
+directoryPlace = "C:/Users/parak/Documents/GitHub/Basic-projects/Projects/ToDoList/todolist.txt"
+
+with open(directoryPlace, "r") as f:
     
     List = f.readlines()
     Tasks = []
     
-    for i in range(0, len(List)):
+    for i in range(len(List)):
         Tasks.append(List[i].strip())
 
 def ListRead():
     
-    for i in range(0, len(Tasks)):
+    for i in range(len(Tasks)):
         print(f"{i + 1}: {Tasks[i]}")
 
 def ListAdd():
@@ -16,15 +18,16 @@ def ListAdd():
     inp = input("Enter the task :- ")    
     
     if len(Tasks) == 0:
-        with open("todolist.txt", "a") as f:
+        with open(directoryPlace, "a") as f:
             f.write(f"{inp}")
         Tasks.append(inp)
     else:
-        with open("todolist.txt", "a") as f:
+        with open(directoryPlace, "a") as f:
             f.write(f"\n{inp}")
         Tasks.append(inp)
     print("\n")
-    ListRead()
+    if len(Tasks) != 0: 
+        ListRead()
 
 def DeleteList():
     
@@ -36,18 +39,23 @@ def DeleteList():
     
     else:
 
+        #popping the index selected
         Tasks.pop(Tasknum - 1)
-
-        with open("todolist.txt", "r+") as f:
+        
+        # We first clear the whole file
+        with open(directoryPlace, "r+") as f:
             f.truncate(0)
 
-        with open("todolist.txt", "a") as f:
-            f.write(f"{Tasks[0]}")
-            
-        for i in range(1, len(Tasks)):
-            with open("todolist.txt", "a") as f:
-                f.write(f"\n{Tasks[i]}")
-        ListRead()
+        # Since all the data is already stored in Task array, we then add it one by one to the .txt file
+        if len(Tasks) != 0:
+            with open(directoryPlace, "a") as f:
+                f.write(f"{Tasks[0]}")
+                
+            for i in range(1, len(Tasks)):
+                with open(directoryPlace, "a") as f:
+                    f.write(f"\n{Tasks[i]}")
+        if len(Tasks) != 0: 
+            ListRead()
 
 def ListEdit():
     
@@ -56,59 +64,71 @@ def ListEdit():
     if Tasknum > len(Tasks):
         print(f"Invalid Output, there are only {len(Tasks)} tasks.")
 
+    elif len(Tasks) == 0:
+        print("No tasks to edit")
+
     else:    
         print(f"Original task : {Tasks[Tasknum - 1]}")
         Tasks[Tasknum - 1] = input("Write the edited version : ")
         
-        with open("todolist.txt", "r+") as f:
+        with open(directoryPlace, "r+") as f:
             f.truncate(0)
         
-        with open("todolist.txt", "a") as f:
+        with open(directoryPlace, "a") as f:
             f.write(f"{Tasks[0]}")
 
         for i in range(1, len(Tasks)):
-            with open("todolist.txt", "a") as f:
+            with open(directoryPlace, "a") as f:
                 f.write(f"\n{Tasks[i]}")
         print("\n")
-        ListRead()
+        if len(Tasks) != 0: 
+            ListRead()
 
-def main(inp):
+def choosingList(inp):
     
-    if inp == 1:
-       ListRead()
-       main(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
-    
-    elif inp == 2:
-        ListAdd()
-        main(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
-    
-    elif inp == 3:
+    match inp:
+        case 1:
+            ListRead()
+            choosingList(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
         
-        if len(Tasks) == 0:
-            print("There are no task present to delete.")
+        case 2:
+            ListAdd()
+            choosingList(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
         
-        else:
-            DeleteList()
-        main(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
-    
-    elif inp == 4:
+        case 3:
+            
+            if len(Tasks) == 0:
+                print("There are no task present to delete.")
+            
+            else:
+                DeleteList()
+            choosingList(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
         
-        if len(Tasks) == 0:
-            print("There are no task present to edit.")
+        case 4:
+            
+            if len(Tasks) == 0:
+                print("There are no task present to edit.")
+            
+            else:
+                ListEdit()
+            choosingList(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
         
-        else:
-            ListEdit()
-        main(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
-    
-    elif inp == 5:
-        print("Exiting !!")
-        return
-    
-    else:
-        main(int(input("Invalid output, try again : ")))
+        case 5:
+            print("Exiting !!")
+            return
+        
+        case _:
+            choosingList(int(input("Invalid output, try again : ")))
 
+def main():
+
+    try:
+        choosingList(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
+
+    except Exception:
+        print("Invalid Output!!")
+        main()
 
 if __name__ == "__main__":
     print("\n\t\t\tWELCOME TO THE TASK MANAGER !!")
-    
-    main(int(input("Choose the serial number of the action you want to perform : \n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
+    main()

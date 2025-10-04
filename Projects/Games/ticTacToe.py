@@ -123,6 +123,15 @@ def main():
         playAgain = input("Do you wanna play again ! :")
 
         if playAgain[0] == "y" or playAgain[0] == "Y":
+            gameboard[0][0] = 1
+            gameboard[0][2] = 2
+            gameboard[0][4] = 3
+            gameboard[2][0] = 4
+            gameboard[2][2] = 5
+            gameboard[2][4] = 6
+            gameboard[4][0] = 7
+            gameboard[4][2] = 8
+            gameboard[4][4] = 9
             main()
         elif playAgain[0] == "n" or playAgain == "N":
             print("Exiting game !")
