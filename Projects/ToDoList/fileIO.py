@@ -9,7 +9,7 @@ with open(directoryPlace, "r") as f:
         Tasks.append(List[i].strip())
 
 def ListRead():
-    print("hello")
+    
     for i in range(len(Tasks)):
         print(f"{i + 1}: {Tasks[i]}")
 
