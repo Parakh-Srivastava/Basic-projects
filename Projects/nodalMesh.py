@@ -44,7 +44,7 @@ def delta123(delt,matrix,iv):
     I2 = float(input(f"Enter {iv}2 :"))
     I3 = float(input(f"Enter {iv}3 :"))
     v = []
-    print(f"\ndelta = {delt}\n")
+    print(f"\ndelta = {delt:.2f}\n")
     for i in range(3):
 
         temp1 = matrix[0][i]
@@ -57,7 +57,7 @@ def delta123(delt,matrix,iv):
 
         deltnum = determinant(matrix[0][0], matrix[0][1], matrix[0][2], matrix[1][0], matrix[1][1], matrix[1][2], matrix[2][0], matrix[2][1], matrix[2][2])
 
-        print(f"delta {i+1} = {deltnum}")
+        print(f"delta {i+1} = {deltnum:.2f}")
         v.append(deltnum/delt)
 
         matrix[0][i] = temp1
@@ -87,7 +87,7 @@ def main():
     voltage = delta123(delt, matrix, iv)
     print("\n")
     for i in range(len(voltage)):
-        print(f"{vi}{i+1} = {voltage[i]}")
+        print(f"{vi}{i+1} = {voltage[i]:.3f}")
 
 if __name__ == "__main__":
     main()
