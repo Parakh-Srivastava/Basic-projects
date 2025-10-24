@@ -24,33 +24,32 @@ def determinant(a11,a12,a13,a21,a22,a23,a31,a32,a33):
     
     return delta
     
-def delta():
+def delta(rg):
     
-    r11 = float(input("Enter r11 :"))
-    r22 = float(input("Enter r22 :"))
-    r33 = float(input("Enter r33 :"))
-    r12 = float(input("Enter r12 / r21 :"))
-    r13 = float(input("Enter r13 / r31 :"))    
-    r23 = float(input("Enter r23 / r32 :"))
+    r11 = float(input(f"Enter {rg}11 :"))
+    r22 = float(input(f"Enter {rg}22 :"))
+    r33 = float(input(f"Enter {rg}33 :"))
+    r12 = float(input(f"Enter {rg}12 / {rg}21 :"))
+    r13 = float(input(f"Enter {rg}13 / {rg}31 :"))    
+    r23 = float(input(f"Enter {rg}23 / {rg}32 :"))
 
     matrix = valuesToMatrix(r11, r22, r33, r12, r13, r23)
     delt = determinant(matrix[0][0], matrix[0][1], matrix[0][2], matrix[1][0], matrix[1][1], matrix[1][2], matrix[2][0], matrix[2][1], matrix[2][2])
 
     return delt,matrix
 
-def delta123(delt,matrix):
+def delta123(delt,matrix,iv):
 
-    I1 = float(input("Enter V/I 1 :"))
-    I2 = float(input("Enter V/I 2 :"))
-    I3 = float(input("Enter V/I 3 :"))
-
+    I1 = float(input(f"\nEnter {iv}1 :"))
+    I2 = float(input(f"Enter {iv}2 :"))
+    I3 = float(input(f"Enter {iv}3 :"))
     v = []
-
-    initialMatrix = matrix
-
-    print()
-
+    print(f"\ndelta = {delt}\n")
     for i in range(3):
+
+        temp1 = matrix[0][i]
+        temp2 = matrix[1][i]
+        temp3 = matrix[2][i]
 
         matrix[0][i] = I1
         matrix[1][i] = I2
@@ -60,8 +59,10 @@ def delta123(delt,matrix):
 
         print(f"delta {i+1} = {deltnum}")
         v.append(deltnum/delt)
-        
-        matrix = initialMatrix
+
+        matrix[0][i] = temp1
+        matrix[1][i] = temp2
+        matrix[2][i] = temp3
 
     return v
 
@@ -69,12 +70,24 @@ def delta123(delt,matrix):
 
 def main():
 
-    delt,matrix = delta()
+    nodalMesh = input("Do you want to solve nodal or mesh analysis : ").lower()
 
-    voltage = delta123(delt, matrix)
+    if nodalMesh[0] == 'n':
+        vi = "V"
+        iv = "I"
+        rg = "g"
+    elif nodalMesh[0] == 'm':
+        vi = "I"
+        iv = "V"
+        rg = "r"
+    else:
+        print("Error!!")
 
+    delt,matrix = delta(rg)
+    voltage = delta123(delt, matrix, iv)
+    print("\n")
     for i in range(len(voltage)):
-        print(f"Voltage / current {i+1} = {voltage[i]}")
+        print(f"{vi}{i+1} = {voltage[i]}")
 
 if __name__ == "__main__":
     main()
