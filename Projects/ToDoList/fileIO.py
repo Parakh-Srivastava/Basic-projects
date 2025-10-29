@@ -18,16 +18,9 @@ def ListAdd():
     inp = input("Enter the task :- ")    
     
     if len(Tasks) == 0:
-        with open(directoryPlace, "a") as f:
-            f.write(f"{inp}")
         Tasks.append(inp)
     else:
-        with open(directoryPlace, "a") as f:
-            f.write(f"\n{inp}")
         Tasks.append(inp)
-    print("\n")
-    if len(Tasks) != 0: 
-        ListRead()
 
 def DeleteList():
     
@@ -41,21 +34,6 @@ def DeleteList():
 
         #popping the index selected
         Tasks.pop(Tasknum - 1)
-        
-        # We first clear the whole file
-        with open(directoryPlace, "r+") as f:
-            f.truncate(0)
-
-        # Since all the data is already stored in Task array, we then add it one by one to the .txt file
-        if len(Tasks) != 0:
-            with open(directoryPlace, "a") as f:
-                f.write(f"{Tasks[0]}")
-                
-            for i in range(1, len(Tasks)):
-                with open(directoryPlace, "a") as f:
-                    f.write(f"\n{Tasks[i]}")
-        if len(Tasks) != 0: 
-            ListRead()
 
 def ListEdit():
     
@@ -70,19 +48,6 @@ def ListEdit():
     else:    
         print(f"Original task : {Tasks[Tasknum - 1]}")
         Tasks[Tasknum - 1] = input("Write the edited version : ")
-        
-        with open(directoryPlace, "r+") as f:
-            f.truncate(0)
-        
-        with open(directoryPlace, "a") as f:
-            f.write(f"{Tasks[0]}")
-
-        for i in range(1, len(Tasks)):
-            with open(directoryPlace, "a") as f:
-                f.write(f"\n{Tasks[i]}")
-        print("\n")
-        if len(Tasks) != 0: 
-            ListRead()
 
 def choosingList(inp):
     
@@ -114,6 +79,14 @@ def choosingList(inp):
             choosingList(int(input("\n1) View Tasks \n2) Add new Task \n3) Delete a Task \n4) Edit a task \n5) Exit the program!!\n:-")))
         
         case 5:
+            with open(directoryPlace, "r+") as f:
+                f.truncate(0)
+            if len(Tasks) != 0:
+                with open(directoryPlace, "a") as f:
+                    f.write(f"{Tasks[0]}")
+                for i in range(1, len(Tasks)):
+                    with open(directoryPlace, "a") as f:
+                        f.write(f"\n{Tasks[i]}")
             print("Exiting !!")
             return
         
