@@ -6,6 +6,7 @@ def valuesToMatrix(r11, r22, r33, r12, r13, r23):
 
 def printMatrix(matrix):
 
+    print("\n")
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             print(f"{matrix[i][j]} ",end="")
@@ -34,6 +35,7 @@ def delta(rg):
     r23 = float(input(f"Enter {rg}23 / {rg}32 :"))
 
     matrix = valuesToMatrix(r11, r22, r33, r12, r13, r23)
+    printMatrix(matrix)
     delt = determinant(matrix[0][0], matrix[0][1], matrix[0][2], matrix[1][0], matrix[1][1], matrix[1][2], matrix[2][0], matrix[2][1], matrix[2][2])
 
     return delt,matrix
