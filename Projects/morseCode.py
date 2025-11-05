@@ -1,4 +1,4 @@
-def DecodeMorse():
+def DecodeMorse(EncodedMessage):
     Syntax = {
         "/" : " ",
         ".-" : "a",
@@ -40,7 +40,6 @@ def DecodeMorse():
     }
 
     try:
-        EncodedMessage = input("Enter the encoded message : ") + " "
         decodedMessage = ""
         MessageToDecode = ""
 
@@ -57,7 +56,7 @@ def DecodeMorse():
     except KeyError():
         print("Wrong morse code syntax.")
 
-def EncodeMorse():
+def EncodeMorse(MessageToEncode):
     Syntax = {
         " " : "/",
         "a" : ".-",
@@ -98,7 +97,6 @@ def EncodeMorse():
         "9" : "----." 
     }
 
-    MessageToEncode = input("Enter the Message to encode : ").lower()
     EncodedMesage = ""
 
     for i in range(0, len(MessageToEncode)):
@@ -109,19 +107,13 @@ def EncodeMorse():
 def main():
     
     try:
-        EncOrDec = int(input("Press 1 for encoding and press 2 to for decoding : "))
+        EncOrDec = input("Enter the message (Encoded or Decoded): ")
 
-        if EncOrDec == 1:
-            EncodeMorse()
-        
-        elif EncOrDec == 2:
-            DecodeMorse()
+        if EncOrDec[0] == "." or EncOrDec[0] == "-" or EncOrDec[0] == "/":
+            DecodeMorse(EncOrDec + " ")
 
         else:
-            print("Wrong input !")
-    
-    except TypeError:
-        print("Enter The correct value !!")
+            EncodeMorse(EncOrDec.lower())
     
     except Exception:
         print("Something went wrong !")
