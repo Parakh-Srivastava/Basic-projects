@@ -45,11 +45,12 @@ def casino(Amount, BettingAmount):
     else:
         print(f"You only got ${Amount} you broke ass nigga !!")
         ContinueGambling(Amount)
-        
-def main():
-    InitialAmount = initialAmountSet(); 
-    BettingAmount = int(input("Enter the betting amount : $"))
-    casino(InitialAmount, BettingAmount)
+
+class Casino():
+    def main():
+        InitialAmount = initialAmountSet(); 
+        BettingAmount = int(input("Enter the betting amount : $"))
+        casino(InitialAmount, BettingAmount)
 
 if __name__ == "__main__":
-    main()
+    Casino.main()
