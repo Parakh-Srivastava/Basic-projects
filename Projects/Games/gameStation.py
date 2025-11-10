@@ -3,10 +3,11 @@ from ticTacToe import TicTacToe as TTT
 from casino import Casino as CAS
 
 print("\t\t\t Welcome to game station !!!")
+print("Enter the serial number of the game you want to play : \n1) Tic Tac Toe \n2)Stone Paper Scissor \n3) Casino\n\n")
 
 while True:
     try:
-        game = int(input("Enter the serial number of the game you want to play : \n1) Tic Tac Toe \n2)Stone Paper Scissor \n3) Casino\n\n"))
+        game = int(input())
         break    
 
     except ValueError:
