@@ -3,13 +3,19 @@ from ticTacToe import TicTacToe as TTT
 from casino import Casino as CAS
 
 print("\t\t\t Welcome to game station !!!")
-game = int(input("Enter the serial number of the game you want to play : \n1) Tic Tac Toe \n2)Stone Paper Scissor \n3) Casino\n\n"))
+
+try:
+    game = int(input("Enter the serial number of the game you want to play : \n1) Tic Tac Toe \n2)Stone Paper Scissor \n3) Casino\n\n"))
+except ValueError:
+    print("The entered value should be a number .")
+except Exception:
+    print("Something went wrong !!")
 
 match game:
     case 1:
-        TTT.main(None)
+        TTT.main()
     case 2:
-        SPS.main(0, 0)
+        SPS.main(0,0)
     case 3:
         CAS.main()
     case "_":

@@ -72,7 +72,7 @@ def gameDraw():
 
 class TicTacToe():
     
-    def main(self):
+    def main():
         
         try:
             print("Write the number where you want the respective symbol !!")
@@ -134,11 +134,11 @@ class TicTacToe():
                 gameboard[4][0] = 7
                 gameboard[4][2] = 8
                 gameboard[4][4] = 9
-                self.main(None)
+                TicTacToe.main()
             elif playAgain[0] == "n" or playAgain == "N":
                 print("Exiting game !")
             else:
                 print("Not a yes or a no results in the closing of the game !!")
 
 if __name__ == "__main__":
-    TicTacToe.main(None)
+    TicTacToe.main()
