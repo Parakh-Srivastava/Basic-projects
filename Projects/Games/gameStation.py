@@ -4,12 +4,15 @@ from casino import Casino as CAS
 
 print("\t\t\t Welcome to game station !!!")
 
-try:
-    game = int(input("Enter the serial number of the game you want to play : \n1) Tic Tac Toe \n2)Stone Paper Scissor \n3) Casino\n\n"))
-except ValueError:
-    print("The entered value should be a number .")
-except Exception:
-    print("Something went wrong !!")
+while True:
+    try:
+        game = int(input("Enter the serial number of the game you want to play : \n1) Tic Tac Toe \n2)Stone Paper Scissor \n3) Casino\n\n"))
+        break    
+
+    except ValueError:
+        print("The entered value should be a number .")
+    except Exception:
+        print("Something went wrong !!")
 
 match game:
     case 1:
@@ -18,5 +21,5 @@ match game:
         SPS.main(0,0)
     case 3:
         CAS.main()
-    case "_":
+    case _:
         print("Only game available are the one listed above !!")
