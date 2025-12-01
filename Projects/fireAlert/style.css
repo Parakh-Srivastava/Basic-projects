@@ -1,0 +1,14 @@
+button{
+    height: 400px;
+    width : 100%;
+    background-color: red;
+    color: gold;
+}
+body{
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/36/Large_bonfire.jpg");
+    background-size: cover;
+    padding: 20px;
+}
+h1{
+    color: white;
+}
