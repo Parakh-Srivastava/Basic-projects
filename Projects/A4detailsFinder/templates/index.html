@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{css_path}}" />
+    <script>
+      function buttonClick() {
+        alert("You sure this the correct register Number?");
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <h1>
+        <i><u>A4 detail finder</u></i>
+      </h1>
+    </center>
+
+    <div class="inputPart">
+      <form method="post">
+        <div class="mb-3">
+          <label for="Entering" class="form-label">
+            <h3>Enter the register Number</h3>
+          </label>
+          <input
+            type="number"
+            class="form-control"
+            name="registerNum"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="buttonClick()">
+          Submit
+        </button>
+      </form>
+    </div>
+    {% if submitted %} {% if result != none %}
+    <table class="table table-bordered border-primary">
+      <br />
+      <tr>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Email Address</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+      </tr>
+      <tr>
+        <td>{{result[0]}}</td>
+        <td>{{result[4]|join('/')}}</td>
+        <td>{{result[1]}}</td>
+        <td>{{result[2]}}</td>
+        <td>{{result[3]}}</td>
+      </tr>
+    </table>
+    {% else %}
+    <center>
+      <h2>Details not found !!</h2>
+    </center>
+    {% endif %} {% endif %}
+  </body>
+</html>

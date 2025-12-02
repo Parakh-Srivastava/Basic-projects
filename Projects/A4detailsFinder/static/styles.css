@@ -1,0 +1,28 @@
+body {
+  background-image: url("https://img.freepik.com/free-vector/wave-background-abstract-gradient-design_483537-3688.jpg?semt=ais_hybrid&w=740&q=80");
+  background-color: gray;
+  background-size: cover;
+  background-attachment: scroll;
+  padding: 20px;
+}
+
+.inputPart {
+  text-align: center;
+  display: grid;
+  place-content: center;
+  padding-top: 15%;
+}
+
+input {
+  tab-size: 50px;
+}
+
+#submitButton {
+  display: grid;
+  place-content: center;
+}
+
+button {
+  align-items: center;
+  padding-bottom: 10px;
+}
