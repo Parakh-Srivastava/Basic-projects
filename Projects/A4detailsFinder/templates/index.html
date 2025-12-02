@@ -10,18 +10,11 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{css_path}}" />
-    <script>
-      function buttonClick() {
-        alert("You sure this the correct register Number?");
-      }
-    </script>
   </head>
   <body>
-    <center>
-      <h1>
-        <i><u>A4 detail finder</u></i>
-      </h1>
-    </center>
+    <h1>
+      <i><u>A4 detail finder</u></i>
+    </h1>
 
     <div class="inputPart">
       <form method="post">
@@ -36,9 +29,7 @@
             required
           />
         </div>
-        <button type="submit" class="btn btn-primary" onclick="buttonClick()">
-          Submit
-        </button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
     {% if submitted %} {% if result != none %}
@@ -60,9 +51,9 @@
       </tr>
     </table>
     {% else %}
-    <center>
-      <h2>Details not found !!</h2>
-    </center>
+
+    <h2>Details not found !!</h2>
+
     {% endif %} {% endif %}
   </body>
 </html>

@@ -7,6 +7,21 @@ body {
   padding: 20px;
 }
 
+h1 {
+  color: white;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
+h3 {
+  color: white;
+  text-align: center;
+}
+
 .inputPart {
   text-align: center;
   display: grid;
